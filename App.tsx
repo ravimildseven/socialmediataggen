@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Platform, TagResults, TagWithCategory, PopularityCategory } from './types';
 import { generateTags } from './services/geminiService';
-import { FacebookIcon, InstagramIcon, YouTubeIcon, CopyIcon, CheckIcon, SparklesIcon, FireIcon, TrendingUpIcon, UsersIcon, TargetIcon } from './components/icons';
+import { FacebookIcon, InstagramIcon, YouTubeIcon, CopyIcon, CheckIcon, SparklesIcon, FireIcon, TrendingUpIcon, UsersIcon, TargetIcon, LightBulbIcon } from './components/icons';
 
 const platformConfig = {
     [Platform.Facebook]: { icon: FacebookIcon, name: 'Facebook', color: 'bg-blue-600' },
@@ -188,6 +188,16 @@ const App: React.FC = () => {
                     {error && (
                         <div className="mt-8 bg-red-500/20 border border-red-500 text-red-300 px-4 py-3 rounded-lg text-center">
                             {error}
+                        </div>
+                    )}
+
+                    {!isLoading && !error && Object.keys(tagResults).length === 0 && (
+                        <div className="mt-12 text-center py-16 px-6 bg-slate-800/30 border-2 border-dashed border-slate-700 rounded-2xl">
+                            <LightBulbIcon className="mx-auto h-16 w-16 text-slate-500" />
+                            <h3 className="mt-6 text-2xl font-bold text-slate-300">Your Results Await</h3>
+                            <p className="mt-2 text-lg text-slate-400">
+                                Enter a description and select platforms to generate your strategic tags.
+                            </p>
                         </div>
                     )}
 
