@@ -1,0 +1,5 @@
+{
+  "name": "Social Media Tag Generator",
+  "description": "An intelligent tool that uses Gemini to generate highly relevant and popular tags for your social media posts on Facebook, Instagram, and YouTube based on your content description.",
+  "requestFramePermissions": []
+}
